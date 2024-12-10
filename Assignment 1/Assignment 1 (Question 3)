@@ -1,0 +1,22 @@
+#include <stdio.h> 
+
+int main() {
+
+    int a,b; 
+    printf("enter first number:"); 
+    scanf("%d",&a); 
+    printf("enter second number: "); 
+    scanf("%d",&b); 
+
+    while(b!=0){ 
+        int borrow = (~a) & b; 
+        a = a ^ b; 
+        b = borrow << 1; 
+
+    } 
+
+    printf("%d is the difference",a); 
+
+    return 0; 
+
+} 

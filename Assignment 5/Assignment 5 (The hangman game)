@@ -1,0 +1,90 @@
+#include <stdio.h> 
+#include <string.h> 
+#include <ctype.h> 
+
+int main(){ 
+    printf("Welcome to Hangman! You have %d tries to guess the word.\n",6); 
+    char word[20]="Hello";
+
+    for (int c=0; word[c]!='\0'; c++) {
+        word[c] = tolower(word[c]);
+        }
+
+    int word_length=strlen(word);
+    char guessed_letters[20];
+    char guessed_word[word_length];
+    int max_tries=6; 
+    int tries=0; 
+    int correct_guesses=0; 
+
+    for (int i = 0; i < word_length; i++) {
+        guessed_word[i] = '_';  
+
+    } 
+
+while(tries<max_tries && correct_guesses<word_length){ 
+  
+    for(int i=0;i<word_length;i++){ 
+        printf("%c",guessed_word[i]); 
+    } 
+
+    printf("\n"); 
+    char guess; 
+    printf("enter the letter: "); 
+    scanf(" %c",&guess); 
+    guess=tolower(guess); 
+
+    int found=0; 
+
+    for(int j=0;j<word_length;j++){ 
+
+        if(word[j]==guess && guessed_word[j]=='_'){ 
+
+            guessed_word[j]= guess; 
+            found=1; 
+            correct_guesses++; 
+        } 
+
+        else if(word[j]==guess && guessed_word[j]==guess){ 
+            printf("\nThe letter is already guessed!\n"); 
+            found=0; 
+
+        } 
+
+        } 
+
+    if(found){ 
+        printf("\nGood guess!\n"); 
+    } 
+
+    else if(found==0){
+        printf("\nGuess another letter!\n"); 
+        tries++; 
+    } 
+
+    else{ 
+        printf("\nSorry the guess is wrong try again!\n"); 
+    } 
+
+    printf("\n%d Tries left\n",max_tries-tries);
+
+} 
+
+printf("\n"); 
+if(correct_guesses==word_length){ 
+
+        for(int k=0;k<word_length;k++){ 
+            printf("%c",word[k]); 
+        } 
+
+        printf("\nCongratulations you won the game!\n");
+} 
+
+else{ 
+    printf("\nSorry you lost the game!\n");
+
+} 
+
+return 0; 
+
+} 

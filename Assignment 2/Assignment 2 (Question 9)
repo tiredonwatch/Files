@@ -1,0 +1,82 @@
+#include <stdio.h> 
+
+void peakvalue(int arr[],int n){ 
+
+    if(n==1){ 
+
+        printf("The peak element of the array is: "); 
+        printf("%d",arr[0]); 
+
+    } 
+
+    else{ 
+
+    int foundPeak=0; 
+
+    if(arr[0]>=arr[1]){ 
+
+        foundPeak += 1; 
+        printf(" %d) Peak element of the array is: ",foundPeak); 
+        printf("%d",arr[0]); 
+        printf("\n"); 
+
+    } 
+
+    if(arr[n-1]>=arr[n-2]){ 
+
+        foundPeak +=1; 
+        printf(" %d) The peak element of the array is: ",foundPeak); 
+        printf("%d",arr[n-1]); 
+        printf("\n"); 
+
+    } 
+
+    for(int i=1; i<n-1; i++){ 
+
+        if(arr[i]>=arr[i+1] && arr[i]>=arr[i-1]){ 
+
+            foundPeak +=1; 
+            printf(" %d) The peak element of the array is: ",foundPeak); 
+            printf("%d",arr[i]); 
+            printf("\n"); 
+
+        } 
+
+     } 
+
+     if(foundPeak == 0){ 
+
+        printf("No Peak element found"); 
+
+    } 
+
+    else{ 
+
+        printf("There are %d peak elements",foundPeak); 
+
+    } 
+
+    } 
+
+} 
+
+int main(){ 
+
+    int size; 
+    printf("Enter the size of the array you want to make: "); 
+    scanf("%d",&size); 
+    int arr[size]; 
+
+    for(int i=0 ; i<size ; i++){ 
+
+        printf("enter element %d of array: ",i+1); 
+        scanf("%d",&arr[i]); 
+        printf("\n"); 
+
+    } 
+
+    peakvalue(arr,size); 
+
+    return 0; 
+
+} 

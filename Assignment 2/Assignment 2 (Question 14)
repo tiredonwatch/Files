@@ -1,0 +1,51 @@
+#include <stdio.h> 
+
+int main() { 
+
+    printf("--------Program to print the duplicate numbers in an Array---------\n"); 
+    int elements; 
+    printf("\nEnter the number of elements you want in your Array: "); 
+    scanf("%d",&elements); 
+    int arr[elements]; 
+
+    for (int i=0; i<elements; i++){ 
+
+        printf("\nEnter number %d element of your array: ",i+1); 
+        scanf("%d",&arr[i]); 
+
+    } 
+
+    printf("\nDuplicate elements in the array ["); 
+
+    for (int j=0; j<elements; j++){ 
+
+        printf(" %d",arr[j]); 
+
+    } 
+
+    printf("] are: "); 
+
+    int count; 
+
+    for(int k=0; k<elements; k++){ 
+
+        for(int l=k+1; l<elements; l++){ 
+
+            if (arr[k]==arr[l]) { 
+
+                count+=1; 
+
+                printf("\n%d) %d ",count,arr[k]); 
+                break; 
+
+            } 
+
+        } 
+
+    } 
+
+    return 0; 
+
+} 
+
+ 

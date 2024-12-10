@@ -1,0 +1,54 @@
+#include <stdio.h> 
+
+int main() { 
+
+    int NumberStudents; 
+    printf("Enter the Number of Students:"); 
+    scanf("%d",&NumberStudents); 
+    float marks[NumberStudents]; 
+    for(int i=0; i<NumberStudents ; i++){ 
+
+            printf("Enter marks of student %d:",i+1); 
+
+            scanf("%f",&marks[i]); 
+
+  
+
+    } 
+
+    printf("\n"); 
+    printf("**************************"); 
+    printf("\n"); 
+    float maxScore=marks[0]; 
+    float minScore=marks[0]; 
+    for (int k=1; k<NumberStudents; k++) { 
+
+        if (marks[k]>maxScore) { 
+
+            maxScore=marks[k]; 
+
+        } 
+
+        if (marks[k]<minScore) { 
+
+            minScore=marks[k]; 
+
+        } 
+
+    } 
+
+    printf("The maximum score is: %.2f\n", maxScore); 
+    printf("The minimum score is: %.2f\n", minScore); 
+    printf("**************************\n"); 
+
+    return 0; 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 

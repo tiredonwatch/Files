@@ -1,0 +1,50 @@
+#include <stdio.h> 
+
+int main(){ 
+
+    printf("---------Program to cyclically rotate an array----------\n"); 
+    int elements; 
+    printf("\nEnter the number of elements you want in your Array: "); 
+    scanf("%d",&elements); 
+    int arr[elements]; 
+
+    for (int i=0; i<elements; i++){ 
+
+        printf("\nEnter element number %d for your Array: ",i+1); 
+        scanf("%d",&arr[i]); 
+
+    } 
+
+    printf("\nThe Array is ["); 
+
+    for (int j=0; j<elements; j++){ 
+
+        printf(" %d",arr[j]); 
+
+    } 
+
+    printf(" ]\n"); 
+
+    int last_element=arr[elements-1]; 
+
+    for(int k=elements-1; k>0; k--){ 
+
+        arr[k]=arr[k-1]; 
+
+    } 
+
+    arr[0]=last_element; 
+
+    printf("\nThe Array after cyclical rotation is ["); 
+
+    for (int l=0; l<elements; l++){ 
+
+        printf(" %d",arr[l]); 
+
+    } 
+
+    printf(" ]"); 
+
+    return 0; 
+
+} 

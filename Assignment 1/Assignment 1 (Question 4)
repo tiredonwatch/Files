@@ -1,0 +1,111 @@
+#include <stdio.h> 
+
+int main() { 
+
+    int a; 
+    int b; 
+    int c; 
+    int choice; 
+    printf("Program to swap numbers with 4 different methods:\n "); 
+    printf("\n 1) Swapping numbers by exchanging user input:\n "); 
+    printf("\n 2) Swapping numbers without using 3 variables: \n"); 
+    printf("\n 3) Swapping numbers using 3 variables:\n "); 
+    printf("\n 4) Swapping numbers using Bitwise XOR operator\n"); 
+
+while(choice!=0){ 
+
+    printf("\nEnter your choice in number :) OR enter 0 to exit \n"); 
+    scanf("%d",&choice); 
+
+    if(choice==1){ 
+
+        printf("\n Swapping numbers by exchanging user input: \n"); 
+        printf("\n enter first number: "); 
+        scanf("%d",&a); 
+        printf("\n enter second number: "); 
+        scanf("%d",&b); 
+        printf(" \n The result after swapping is: \n"); 
+        printf("\n The first number is : %d \n",b); 
+        printf("\n The second number is : %d \n",a); 
+
+    } 
+
+    else if(choice==2){ 
+
+            printf("\n Swapping numbers without using 3 variables: \n"); 
+            printf("\n enter first number: "); 
+            scanf("%d",&a); 
+            printf("\n enter second number: "); 
+            scanf("%d",&b); 
+            a=a+b; 
+            b=a-b; 
+            a=a-b; 
+            printf("\n The result after swapping is: \n"); 
+            printf("\n The first number is: %d \n",a); 
+            printf("\n The second number is : %d \n",b); 
+
+    } 
+
+    else if (choice==3){ 
+
+        printf("\n Swapping numbers using 3 variables: \n"); 
+        printf("\n enter first number: "); 
+        scanf("%d",&a); 
+        printf("\n enter second number: "); 
+        scanf("%d",&b); 
+        c=a; 
+        a=b; 
+        b=c; 
+        printf("\n The result after swapping is: \n"); 
+        printf("\n The first number is: %d \n",a); 
+        printf("\n The second number is : %d \n",b); 
+
+    } 
+
+  
+
+    else if(choice==4){ 
+
+            printf("\n Swapping numbers using Bitwise XOR operator\n"); 
+            printf("\n enter first number: "); 
+            scanf("%d",&a); 
+            printf("\n enter second number: "); 
+            scanf("%d",&b); 
+            a=a^b; 
+            b=a^b; 
+            a=a^b; 
+            printf("\n The result after swapping is: \n"); 
+            printf("\n The first number is: %d \n",a); 
+            printf("\n The second number is : %d \n",b); 
+
+    } 
+
+    else{ 
+
+        printf("Exited from the program"); 
+
+    } 
+
+} 
+
+    return 0; 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 

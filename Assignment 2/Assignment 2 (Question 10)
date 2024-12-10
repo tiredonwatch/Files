@@ -1,0 +1,72 @@
+#include <stdio.h> 
+#include <math.h> 
+
+int main(){ 
+
+    printf("\n----Program to display the number of Prime Numbers in an Array--------\n"); 
+    int elements; 
+    printf("\nenter the number of elements for your array: "); 
+    scanf("%d",&elements); 
+    int arr[elements]; 
+
+    for(int i=0; i<elements ; i++){ 
+
+        printf("enter number %d element of your array: ",i+1); 
+        scanf("%d",&arr[i]); 
+
+    } 
+
+    int count=0; 
+
+    for(int j=0; j<elements; j++){ 
+
+        int num=arr[j]; 
+        int isPrime=1; 
+
+        if(num<=1){ 
+
+            isPrime=0; 
+
+        } 
+
+        else{ 
+
+            for (int k=2; k<=sqrt(num); k++) { 
+
+                if (num%k==0) { 
+
+                    isPrime=0; 
+
+                    break; 
+
+                } 
+
+            } 
+
+        } 
+
+        if(isPrime==1){ 
+
+            count++; 
+
+        } 
+
+    } 
+
+    printf("\nNumber of prime numbers in the array:"); 
+    printf("["); 
+
+    for (int l=0; l<elements; l++){ 
+
+            printf("%d ",arr[l]);
+
+    } 
+
+    printf("]"); 
+    printf(" is the following : %d",count); 
+
+    return 0; 
+
+} 
+
+  

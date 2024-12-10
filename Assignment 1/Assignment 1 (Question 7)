@@ -1,0 +1,87 @@
+#include <stdio.h> 
+
+int binary_to_decimal(int binary){ 
+
+    int decimal=0; 
+    int base=1; 
+    int remainder; 
+    if (binary==0){ 
+
+        return 0; 
+
+    } 
+
+    while(binary>0){ 
+
+        remainder=binary%10; 
+        decimal+=remainder*base; 
+        binary/=10; 
+        base*=2; 
+
+    } 
+
+    return decimal; 
+
+} 
+
+int decimal_to_binary(int decimal){ 
+
+    int binary=0; 
+    int place=1; 
+    int remainder2; 
+    if (decimal==0) { 
+
+        return 0; 
+
+    } 
+
+    while (decimal>0){ 
+
+        remainder2=decimal%2; 
+        binary+=remainder2*place; 
+        decimal/=2; 
+        place*=10; 
+
+} 
+
+return binary; 
+
+} 
+
+int main(){ 
+
+    printf("----------Program to convert Decimal to Binary OR Binary to Decimal number-------"); 
+    int choice,num; 
+    printf("\nSelect your option\n"); 
+    printf("\n1) Binary to decimal Conversion\n"); 
+    printf("\n2) Decimal to Binary Conversion\n"); 
+    printf("\nEnter your choice (1 or 2): "); 
+    scanf("%d",&choice); 
+
+    switch (choice){ 
+
+      case 1: 
+
+          printf("\nEnter the binary number:\n"); 
+          scanf("%d",&num); 
+          printf("\nThe decimal equivalent of the number is: %d \n",binary_to_decimal(num)); 
+        break; 
+
+      case 2: 
+
+        printf("\n Enter the Decimal number: \n"); 
+        scanf("%d",&num); 
+        printf("\nThe binary equivalent of the number is : %d \n",decimal_to_binary(num)); 
+        break; 
+
+      default: 
+
+        printf("\nInvalid choice... Please enter 1 or 2\n"); 
+        break; 
+
+    } 
+
+return 0;
+
+    } 
+ 

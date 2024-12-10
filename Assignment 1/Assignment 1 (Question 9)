@@ -1,0 +1,51 @@
+#include <stdio.h> 
+
+int main() { 
+
+    for(int rows=0; rows<5; rows++){ 
+
+        for(int columns=0; columns<=rows; columns++){ 
+
+            if (columns%2==0){ 
+
+                    printf("0"); 
+
+            } 
+
+            else { 
+
+                printf("1"); 
+
+            } 
+
+        } 
+
+        for(int columns=0; columns<2*(5-rows-1); columns++){ 
+
+            printf(" "); 
+
+        } 
+
+        for(int columns=0; columns<=rows; columns++){ 
+
+            if(columns%2==0){ 
+
+                printf("0"); 
+
+            } 
+
+             else{ 
+
+                printf("1"); 
+
+            } 
+
+        } 
+
+        printf("\n"); 
+
+    } 
+
+    return 0; 
+
+} 

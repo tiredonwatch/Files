@@ -1,0 +1,55 @@
+#include <stdio.h> 
+
+int main(){ 
+
+    int num; 
+
+    while(1){ 
+
+            printf("\nEnter a number to check whether it's Perfect or not\n "); 
+            printf("\nOR \n"); 
+            printf("\nEnter 0 to exit the program "); 
+            printf("\n"); 
+            scanf("%d",&num); 
+
+            if(num==0){ 
+
+                printf("\nExited from the program\n"); 
+                break; 
+
+            } 
+
+            else{ 
+
+                int sum=0; 
+
+                for (int i=1; i<num; i++){ 
+
+                    if (num%i==0){ 
+
+                        sum+=i; 
+
+                    } 
+
+                } 
+
+                if(num==sum){ 
+
+                    printf("\nThe number is a perfect number\n"); 
+
+                } 
+
+                else{ 
+
+                    printf("\nThe number is not a perfect number\n"); 
+
+                } 
+
+            } 
+
+    } 
+
+    return 0; 
+
+    } 
+ 

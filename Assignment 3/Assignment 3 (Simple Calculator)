@@ -1,0 +1,99 @@
+#include <stdio.h> 
+#include <math.h> 
+#include <stdlib.h> 
+
+int main() { 
+
+    double answer=0; 
+    double num; 
+    char operator_; 
+    char stars[10] = "**********"; 
+    printf("%-20s", stars); 
+    printf("\n Simple Calculator---(Performs continuous operations)\n"); 
+    printf("Press Q to exit\n"); 
+    printf("Enter a number:\n"); 
+
+    if (scanf("%lf",&answer)!=1){ 
+        printf("Invalid input! Exiting the calculator\n"); 
+        return 1; 
+    }
+
+    while(1){ 
+        printf("Enter operator (+,-,*,/,l(for log),s(for square root) OR press Q to exit):\n"); 
+        scanf(" %c",&operator_); 
+        if (operator_ =='Q'||operator_ =='q'){ 
+            printf("Exited from the calculator\n"); 
+            return 0; 
+        } 
+
+        else if (operator_ =='l'){ 
+            if (answer <= 0){ 
+                printf("Logarithm of a non-positive number is undefined\n"); 
+            } 
+            else{ 
+                answer=log10(answer); 
+                printf("The result of the operation is:%lf\n",answer); 
+           } 
+        } 
+
+        else if (operator_ =='s'){ 
+            if (answer<0){ 
+                printf("Square root of a non-positive number is imaginary\n"); 
+            } 
+
+             else if (answer==0){ 
+                printf("Square root of %lf is %lf\n",0.0,0.0); 
+            } 
+
+            else{ 
+                answer=sqrt(answer); 
+                printf("The result of the operation is: %lf\n",answer); 
+            } 
+        } 
+
+        else{ 
+            printf("Enter next number: "); 
+            if (scanf("%lf",&num)!=1){ 
+                printf("Invalid input! Exiting the calculator.\n"); 
+                return 1; 
+            } 
+
+            switch (operator_) { 
+
+                case '+': 
+                    answer+=num; 
+                    break; 
+
+                case '-': 
+                    answer-=num; 
+                    break; 
+
+                case '*': 
+                    answer*=num; 
+                    break; 
+
+                case '/': 
+                    if (num==0){ 
+                        printf("Division by zero is not defined\n"); 
+                    } 
+
+                    else{ 
+                        answer/=num; 
+                    } 
+                    break; 
+
+                default: 
+                    printf("Invalid operator...please try again\n"); 
+                    continue; 
+            } 
+
+            printf("Result:%lf\n",answer); 
+        } 
+    } 
+
+    return 0; 
+
+} 
+
+ 
+

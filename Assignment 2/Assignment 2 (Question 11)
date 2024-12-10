@@ -1,0 +1,125 @@
+#include <stdio.h> 
+#include <stdlib.h> 
+
+int main(){ 
+
+    printf("-------Program to insert an element in an Array------\n");
+    int size; 
+    printf("\nEnter the number of elements you want in your array: "); 
+    scanf("%d",&size); 
+    int *arr=(int*)malloc(size*sizeof(int)); 
+
+    for(int i=0; i<size; i++){ 
+
+        printf("\nEnter number %d element of your array: ",i+1); 
+        scanf("%d",&arr[i]); 
+
+    } 
+
+    printf("\nThe Array is: [ "); 
+
+    for(int j=0; j<size; j++){ 
+
+        printf(" %d", arr[j]); 
+
+    } 
+
+    printf(" ]\n"); 
+
+    int choice; 
+    int element; 
+    printf("\nSelect one operation:\n"); 
+    printf("1) Insert element at front of the array\n"); 
+    printf("2) Insert element between the array\n"); 
+    printf("3) Insert element at the end of the array\n"); 
+    printf("\nEnter your choice (1, 2 or 3): "); 
+    scanf("%d",&choice); 
+
+    if(choice==1){ 
+
+        printf("\nYou selected 1st choice!\n"); 
+        printf("\nEnter the element which you want to insert at the front position: "); 
+        scanf("%d", &element); 
+        arr=realloc(arr,(size+1)*sizeof(int)); 
+
+        for (int k=size; k>0; k--){ 
+
+            arr[k]=arr[k - 1]; 
+
+        } 
+
+        arr[0]=element; 
+        size++; 
+        printf("\nThe new Array is : ["); 
+
+        for(int l=0; l<size; l++){ 
+
+            printf(" %d",arr[l]); 
+
+        } 
+
+        printf(" ]\n"); 
+
+    } 
+
+    else if(choice==2){ 
+
+        int index; 
+        printf("\nYou selected 2nd choice!\n"); 
+        printf("\nEnter the position (1 to %d) at which you want to insert a new element: ",size); 
+        scanf("%d",&index); 
+        printf("\nEnter the element which you want to insert at position %d: ",index); 
+        scanf("%d",&element); 
+        arr=realloc(arr,(size+1)*sizeof(int)); 
+
+        for(int a=size ;a>=index ; a--){ 
+
+            arr[a]=arr[a - 1]; 
+
+        } 
+
+        arr[index-1]=element; 
+        size++; 
+        printf("\nThe new Array is ["); 
+
+        for (int b=0; b<size; b++){ 
+
+            printf(" %d",arr[b]); 
+
+        } 
+
+        printf(" ]\n"); 
+
+    } 
+
+     else if (choice == 3) { 
+
+        printf("\nYou selected 3rd choice!\n"); 
+        printf("\nEnter the element which you want to insert at the end: "); 
+        scanf("%d", &element); 
+        arr=realloc(arr,(size+1)*sizeof(int)); 
+        arr[size]=element; 
+        size++; 
+        printf("\nThe new Array is: ["); 
+
+        for (int c=0; c<size; c++){ 
+
+            printf(" %d",arr[c]); 
+
+        } 
+
+        printf(" ]\n"); 
+
+    } 
+
+     else { 
+
+        printf("\nInvalid choice!\n"); 
+
+    } 
+
+    free(arr); 
+
+    return 0; 
+
+} 

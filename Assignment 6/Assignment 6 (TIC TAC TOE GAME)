@@ -1,0 +1,235 @@
+#include <stdio.h> 
+
+void displayBoard(char board[3][3]){ 
+
+      printf("\n"); 
+
+      for(int i=0; i<3 ; i++){ 
+
+        for(int j=0; j<3; j++){ 
+
+            printf("%c",board[i][j]); 
+
+            if(j<2){ 
+
+                printf("|"); 
+
+            } 
+
+        } 
+
+        printf("\n"); 
+
+        if(i<2){ 
+
+            printf("-+-+-\n"); 
+
+        } 
+
+      } 
+
+      printf("\n"); 
+
+} 
+
+  
+
+int checkWin(char board[3][3],char currentPlayer){ 
+
+  
+
+    //Checking for rows and columns (k is the row number) 
+
+    for(int k=0; k<3; k++){ 
+
+            if((board[k][0]==currentPlayer && board[k][1]==currentPlayer && board[k][2]==currentPlayer)|| 
+
+               (board[0][k]==currentPlayer && board[1][k]==currentPlayer && board[2][k]==currentPlayer)){ 
+
+                    return 1; 
+
+               } 
+
+    } 
+
+  
+
+            //checking for diagonal elements 
+
+            if ((board[0][0]==currentPlayer && board[1][1]==currentPlayer && board[2][2]==currentPlayer)|| 
+
+                (board[0][2]==currentPlayer && board[1][1]==currentPlayer && board[2][0]==currentPlayer)){ 
+
+                    return 1; 
+
+                } 
+
+  
+
+        return 0; 
+
+  
+
+} 
+
+  
+
+int isBoardFull(char board[3][3]){ 
+
+  
+
+    for(int l=0; l<3; l++){ 
+
+        for(int m=0; m<3; m++){ 
+
+            if(board[l][m]==' '){ 
+
+                return 0; 
+
+            } 
+
+        } 
+
+    } 
+
+    return 1; 
+
+  
+
+} 
+
+  
+
+int main(){ 
+
+  
+
+    char board[3][3] = { 
+
+        {' ', ' ', ' '}, 
+
+        {' ', ' ', ' '}, 
+
+        {' ', ' ', ' '} 
+
+    }; 
+
+    int row; 
+
+    int column; 
+
+    char currentPlayer= 'X'; 
+
+    int moves=0; 
+
+    printf("------TIC TAC TOE GAME------"); 
+
+    displayBoard(board); 
+
+  
+
+    while(1){ 
+
+       // Take input for the row and column 
+
+       printf("Player %c, enter your move(row [0-2]):",currentPlayer); 
+
+       scanf("%d",&row); 
+
+       printf("Player %c, enter your move(column [0-2]):",currentPlayer); 
+
+       scanf("%d",&column); 
+
+  
+
+       // Check if the input is valid 
+
+       if (row<0 || row>2 || column<0 || column>2){ 
+
+        printf("Invalid input... Please enter row and column between 0 and 2\n"); 
+
+            continue; 
+
+       } 
+
+  
+
+  
+
+       // Check if the cell is already occupied 
+
+       if (board[row][column]!=' '){ 
+
+         printf("Cell already occupied...Choose a different cell\n"); 
+
+            continue; 
+
+       } 
+
+  
+
+  
+
+  
+
+        // Make the move 
+
+        board[row][column]=currentPlayer; 
+
+        moves++; 
+
+  
+
+         // Print the board after the move 
+
+         displayBoard(board); 
+
+  
+
+         // Check if the current player has won 
+
+         if(checkWin(board,currentPlayer)){ 
+
+            printf("Player %c wins!\n",currentPlayer); 
+
+            break; 
+
+         } 
+
+  
+
+  
+
+  
+
+          // Check if the board is full (tie game) 
+
+          else if(isBoardFull(board)){ 
+
+                printf("It's a tie!\n"); 
+
+                break; 
+
+          } 
+
+  
+
+  
+
+  
+
+         // Switch players 
+
+         currentPlayer=(currentPlayer=='X')?'O':'X';//with the help of ternary operator 
+
+    } 
+
+    return 0; 
+
+} 
+
+  
+
+ 
+
+ 

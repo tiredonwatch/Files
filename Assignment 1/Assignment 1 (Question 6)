@@ -1,0 +1,56 @@
+#include <stdio.h> 
+
+int main(){ 
+
+    int cord1,cord2; 
+    int choice; 
+    printf("\n--------Program to determine the quadrant of XY coordinate point--------\n"); 
+
+    while(1){ 
+
+            printf("\nIf you want to exit the Program Enter 2 else press 1 \n"); 
+            scanf("%d",&choice); 
+
+            if(choice==2){ 
+
+                printf("\nExited from the program\n"); 
+                break; 
+
+            } 
+
+            else { 
+
+              printf("\nEnter the X coordinate point and Y coordinate point: \n"); 
+              scanf("%d %d",&cord1,&cord2); 
+
+              if (cord1>0 && cord2>0){ 
+
+                 printf("\nThe coordinate point (%d,%d) lies in the First quadrant. \n",cord1,cord2); 
+
+              } 
+
+              else if (cord1<0 && cord2>0){ 
+
+                       printf("\nThe coordinate point (%d,%d) lies in the Second quadrant. \n",cord1,cord2); 
+
+              } 
+
+              else if (cord1<0 && cord2<0){ 
+
+                     printf("\nThe coordinate point (%d,%d) lies in the Third quadrant. \n",cord1,cord2); 
+
+              } 
+
+              else{ 
+
+                printf("\nThe coordinate point (%d,%d) lies in the Fourth quadrant. \n",cord1,cord2); 
+
+            } 
+
+        } 
+
+    } 
+
+    return 0; 
+
+} 

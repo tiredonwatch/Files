@@ -1,0 +1,93 @@
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <time.h> 
+#include <string.h> 
+
+int main(){ 
+
+    char Choice[10]; 
+    int ComputerChoice; 
+    srand(time(NULL)); 
+    printf("ROCK PAPER SCISSORS GAME\n"); 
+    printf("Choose between ROCK, PAPER, SCISSORS or press Q to exit\n"); 
+
+    while (1){ 
+
+        printf("Enter your choice: "); 
+        scanf("%s",Choice); 
+
+        if (Choice[0]=='q' || Choice[0]=='Q'){ 
+            printf("Exited from the program"); 
+            break; 
+        } 
+
+        else{ 
+
+             int i=0; 
+             while (Choice[i] !='\0'){ 
+
+            Choice[i] =tolower(Choice[i]); 
+            i++; 
+             } 
+
+            ComputerChoice= rand() % (100- 0 + 1) + 0; 
+
+            if (strcmp(Choice,"rock")==0){ 
+
+                    if (ComputerChoice>=0 && ComputerChoice<=33){ 
+                    printf("Computer chose ROCK \nIt's a tie\n"); 
+                    } 
+
+            else if (ComputerChoice>33 && ComputerChoice<=66){ 
+                printf("Computer chose PAPER \nComputer Won!\n"); 
+            } 
+
+            else{ 
+                printf("Computer chose SCISSORS \nYou won!\n"); 
+            } 
+
+        } 
+
+        else if (strcmp(Choice,"paper")==0){ 
+
+                if (ComputerChoice>=0 && ComputerChoice<=33){ 
+                printf("Computer chose ROCK \nComputer Won!\n"); 
+                } 
+
+                else if (ComputerChoice>33 && ComputerChoice<=66){ 
+                        printf("Computer chose PAPER \nIt's a tie\n"); 
+                } 
+
+                else{ 
+                        printf("Computer chose SCISSORS \nYou won!\n"); 
+                } 
+        } 
+
+        else if (strcmp(Choice,"scissors")==0){ 
+
+                 if (ComputerChoice>=0 && ComputerChoice<=33){ 
+                 printf("Computer chose ROCK \nComputer Won!\n"); 
+                 } 
+
+                 else if (ComputerChoice>33 && ComputerChoice<=66){ 
+                 printf("Computer chose PAPER \nYou won!\n"); 
+                 } 
+
+                else{ 
+                        printf("Computer chose SCISORRS \nIt's a tie\n"); 
+                } 
+        } 
+
+        else { 
+            printf("Invalid input try again...\n"); 
+        }
+
+        } 
+
+    } 
+
+     return 0; 
+
+} 
+
+  
